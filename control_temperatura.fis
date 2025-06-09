@@ -1,0 +1,33 @@
+[System]
+Name='control_temperatura'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='step'
+Range=[0 100]
+NumMFs=3
+MF1='baja':'trimf',[-41.67 0 41.67]
+MF2='media':'trimf',[8.333 50 91.67]
+MF3='allta':'trimf',[58.33 100 141.7]
+
+[Output1]
+Name='temperatura'
+Range=[0 70]
+NumMFs=3
+MF1='baja':'trimf',[-29.7255555555556 -0.555555555555557 28.6144444444444]
+MF2='media':'trimf',[5.833 35 64.17]
+MF3='allta':'trimf',[40.83 70 99.17]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 3 (1) : 1
